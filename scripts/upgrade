@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #=================================================
-# GENERIC START
-#=================================================
 # IMPORT GENERIC HELPERS
 #=================================================
 
@@ -17,8 +15,6 @@ ynh_script_progression "Loading installation settings..."
 old_core_version=$(ynh_app_setting_get --app=$app --key=core_version)
 core_version=$(ynh_app_upstream_version)
 
-#=================================================
-# STANDARD UPGRADE STEPS
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
@@ -59,8 +55,6 @@ ynh_config_add_phpfpm
 # Create a dedicated NGINX config
 ynh_config_add_nginx
 
-#=================================================
-# SPECIFIC UPGRADE
 #=================================================
 # ADD SWAP
 #=================================================
@@ -143,8 +137,6 @@ chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
 
-#=================================================
-# GENERIC FINALIZATION
 #=================================================
 # SETUP LOGROTATE
 #=================================================
